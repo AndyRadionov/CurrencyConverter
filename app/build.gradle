@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -13,6 +12,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField 'String', "API_BASE_URL", currency_api_base_url
     }
     buildTypes {
         release {
@@ -53,13 +53,13 @@ dependencies {
     //Dagger Di
     implementation "com.google.dagger:dagger:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
-    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
     //Moxy Mvp
     implementation "com.arello-mobile:moxy:$moxy_version"
     implementation "com.arello-mobile:moxy-app-compat:$moxy_version"
-    annotationProcessor "com.arello-mobile:moxy-compiler:$moxy_version"
+    kapt "com.arello-mobile:moxy-compiler:$moxy_version"
 
     //Testing
     testImplementation "junit:junit:$junit_version"
