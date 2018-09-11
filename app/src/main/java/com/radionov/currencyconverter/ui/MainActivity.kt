@@ -1,7 +1,8 @@
-package com.radionov.currencyconverter
+package com.radionov.currencyconverter.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.radionov.currencyconverter.R
 
 class MainActivity : AppCompatActivity() {
 
