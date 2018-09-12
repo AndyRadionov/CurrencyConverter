@@ -3,6 +3,7 @@ package com.radionov.currencyconverter.ui
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.view.View
+import android.widget.AdapterView
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -33,7 +34,7 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
         setContentView(R.layout.activity_main)
 
         setupSpinners()
-        setupButtonListener()
+        setupListeners()
     }
 
     override fun showProgress() {
@@ -77,11 +78,23 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
         spinnerToCurrency.setSelection(RUB_ARRAY_POSITION)
     }
 
-    private fun setupButtonListener() {
+    private fun setupListeners() {
         btnConvert.setOnClickListener {
             showProgress()
             performRequest()
         }
+
+        val spinnerListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                tvResult.text = EMPTY_STRING
+            }
+        }
+
+        spinnerFromCurrency.onItemSelectedListener = spinnerListener
+        spinnerToCurrency.onItemSelectedListener = spinnerListener
     }
 
     private fun performRequest() {
