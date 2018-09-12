@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">CurrencyConverter</string>
+    <string name="app_name">Currency converter</string>
+    <string name="usd_currency" translatable="false">USD</string>
+    <string name="rub_currency" translatable="false">RUB</string>
+    <string name="convert_from">Convert from</string>
+    <string name="convert_to">Convert to</string>
+    <string name="result">Result:</string>
+    <string name="convert">Convert</string>
 </resources>

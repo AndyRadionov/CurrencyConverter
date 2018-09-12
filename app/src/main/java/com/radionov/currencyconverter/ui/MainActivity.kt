@@ -7,6 +7,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.radionov.currencyconverter.CurrencyApp
 import com.radionov.currencyconverter.R
 import com.radionov.currencyconverter.presenter.CurrencyPresenter
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : MvpAppCompatActivity(), CurrenciesView {
@@ -21,8 +22,11 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        CurrencyApp.appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        CurrencyApp.appComponent.inject(this)
+//        convert_from.setOnClickListener {
+//            println()
+//        }
     }
 }

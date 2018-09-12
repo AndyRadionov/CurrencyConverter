@@ -1,11 +1,81 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="left_right_constraint">
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+    </style>
+
+    <style name="left_right_constraint_with_margins" parent="left_right_constraint">
+        <item name="android:layout_marginEnd">@dimen/margin</item>
+        <item name="android:layout_marginStart">@dimen/margin</item>
+    </style>
+
+    <style name="zero_width" parent="left_right_constraint">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="convert_title_style" parent="zero_width">
+        <item name="android:layout_margin">@dimen/margin</item>
+        <item name="android:textColor">@color/greyText</item>
+    </style>
+
+    <style name="convert_field_style" parent="zero_width">
+        <item name="android:layout_marginEnd">@dimen/margin</item>
+        <item name="android:layout_marginStart">@dimen/margin</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+    <style name="delimiter_style" parent="left_right_constraint_with_margins">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/delimiter_size</item>
+        <item name="android:background">@color/delimiter</item>
+    </style>
+
+    <style name="common_result_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_result</item>
+    </style>
+
+    <style name="result_title_style" parent="common_result_style">
+        <item name="android:layout_marginStart">@dimen/margin</item>
+        <item name="android:textColor">@color/greyText</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="android:textSize">@dimen/title_result_size</item>
+    </style>
+
+    <style name="result_style" parent="common_result_style">
+        <item name="android:layout_marginEnd">@dimen/margin</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+    <style name="button_style" parent="zero_width">
+        <item name="android:layout_marginLeft">@dimen/margin_button</item>
+        <item name="android:layout_marginRight">@dimen/margin_button</item>
+        <item name="android:layout_marginTop">@dimen/margin_button_top</item>
+        <item name="android:background">@color/colorYellow</item>
+    </style>
+
+    <style name="progress_style" parent="@android:style/Widget.Material.ProgressBar">
+        <item name="android:layout_width">@dimen/progress_bar_size</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/margin_button</item>
+        <item name="android:layout_marginRight">@dimen/margin_button</item>
+        <item name="android:layout_marginTop">@dimen/margin_button_top</item>
+        <item name="android:elevation">@dimen/progress_bar_elevation</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+    </style>
 </resources>

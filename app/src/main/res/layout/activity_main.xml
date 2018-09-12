@@ -7,12 +7,65 @@
     tools:context=".ui.MainActivity">
 
     <TextView
+        android:id="@+id/tvTitleFrom"
+        style="@style/convert_title_style"
+        android:text="@string/convert_from"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFromCurrency"
+        style="@style/convert_field_style"
+        android:text="@string/usd_currency"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleFrom" />
+
+    <View
+        style="@style/delimiter_style"
+        app:layout_constraintTop_toBottomOf="@id/tvFromCurrency" />
+
+    <TextView
+        android:id="@+id/tvTitleTo"
+        style="@style/convert_title_style"
+        android:text="@string/convert_to"
+        app:layout_constraintTop_toBottomOf="@id/tvFromCurrency" />
+
+    <TextView
+        android:id="@+id/tvToCurrency"
+        style="@style/convert_field_style"
+        android:text="@string/rub_currency"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleTo" />
+
+    <View
+        style="@style/delimiter_style"
+        app:layout_constraintTop_toBottomOf="@id/tvToCurrency" />
+
+    <android.support.constraint.Group
+        android:id="@+id/resultGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:visibility="gone"
+        app:constraint_referenced_ids="tvResultTitle,tvResult" />
+
+    <TextView
+        android:id="@+id/tvResultTitle"
+        style="@style/result_title_style"
+        android:text="@string/result"
+        app:layout_constraintTop_toBottomOf="@id/tvToCurrency" />
+
+    <TextView
+        android:id="@+id/tvResult"
+        style="@style/result_style"
+        app:layout_constraintTop_toBottomOf="@id/tvToCurrency" />
+
+    <Button
+        android:id="@+id/btnConvert"
+        style="@style/button_style"
+        android:text="@string/convert"
+        app:layout_constraintTop_toBottomOf="@id/tvResultTitle" />
+
+    <ProgressBar
+        android:id="@+id/pbConvert"
+        style="@style/progress_style"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/tvResultTitle" />
 
 </android.support.constraint.ConstraintLayout>
