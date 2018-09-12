@@ -6,7 +6,6 @@ import com.radionov.currencyconverter.data.repositories.CurrencyRepository
 import com.radionov.currencyconverter.ui.CurrenciesView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 

@@ -110,8 +110,8 @@ class AppModule(private val app: Application) {
 
     companion object {
         private const val TAG = "NewsModule"
-        private val CACHE_CONTROL_HEADER = "Cache-Control"
-        private val PRAGMA_HEADER = "Pragma"
-        private val ACCESS_CONTROL_ALLOW_ORIGIN_HEADER = "Access-Control-Allow-Origin"
+        private const val CACHE_CONTROL_HEADER = "Cache-Control"
+        private const val PRAGMA_HEADER = "Pragma"
+        private const val ACCESS_CONTROL_ALLOW_ORIGIN_HEADER = "Access-Control-Allow-Origin"
     }
 }
