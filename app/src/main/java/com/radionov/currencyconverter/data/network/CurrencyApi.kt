@@ -1,7 +1,6 @@
 package com.radionov.currencyconverter.data.network
 
 import android.support.annotation.NonNull
-import com.radionov.currencyconverter.data.entities.Currency
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,6 +11,6 @@ import retrofit2.http.Query
  */
 interface CurrencyApi {
 
-    @GET("search/photos")
-    fun fetchCurrency(@NonNull @Query("q") query: String): Observable<Currency>
+    @GET("convert?compact=ultra")
+    fun fetchCurrency(@NonNull @Query("q") query: String): Observable<Map<String, Double>>
 }

@@ -12,31 +12,31 @@
         android:text="@string/convert_from"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvFromCurrency"
+    <Spinner
+        android:id="@+id/spinnerFromCurrency"
         style="@style/convert_field_style"
         android:text="@string/usd_currency"
         app:layout_constraintTop_toBottomOf="@id/tvTitleFrom" />
 
     <View
         style="@style/delimiter_style"
-        app:layout_constraintTop_toBottomOf="@id/tvFromCurrency" />
+        app:layout_constraintTop_toBottomOf="@id/spinnerFromCurrency" />
 
     <TextView
         android:id="@+id/tvTitleTo"
         style="@style/convert_title_style"
         android:text="@string/convert_to"
-        app:layout_constraintTop_toBottomOf="@id/tvFromCurrency" />
+        app:layout_constraintTop_toBottomOf="@id/spinnerFromCurrency" />
 
-    <TextView
-        android:id="@+id/tvToCurrency"
+    <Spinner
+        android:id="@+id/spinnerToCurrency"
         style="@style/convert_field_style"
         android:text="@string/rub_currency"
         app:layout_constraintTop_toBottomOf="@id/tvTitleTo" />
 
     <View
         style="@style/delimiter_style"
-        app:layout_constraintTop_toBottomOf="@id/tvToCurrency" />
+        app:layout_constraintTop_toBottomOf="@id/spinnerToCurrency" />
 
     <android.support.constraint.Group
         android:id="@+id/resultGroup"
@@ -49,12 +49,12 @@
         android:id="@+id/tvResultTitle"
         style="@style/result_title_style"
         android:text="@string/result"
-        app:layout_constraintTop_toBottomOf="@id/tvToCurrency" />
+        app:layout_constraintTop_toBottomOf="@id/spinnerToCurrency" />
 
     <TextView
         android:id="@+id/tvResult"
         style="@style/result_style"
-        app:layout_constraintTop_toBottomOf="@id/tvToCurrency" />
+        app:layout_constraintTop_toBottomOf="@id/spinnerToCurrency" />
 
     <Button
         android:id="@+id/btnConvert"
