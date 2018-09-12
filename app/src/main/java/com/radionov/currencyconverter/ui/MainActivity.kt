@@ -1,6 +1,7 @@
 package com.radionov.currencyconverter.ui
 
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.view.View
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -22,6 +23,8 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
     fun providePresenter(): CurrencyPresenter {
         return currencyPresenter
     }
+
+    private var errorDialog: AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         CurrencyApp.appComponent.inject(this)
@@ -50,11 +53,17 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
     }
 
     override fun showNetworkError() {
-
+        showErrorDialog(getString(R.string.connection_error_title),
+                getString(R.string.connection_error_msg))
     }
 
-    override fun showServerError() {
+    override fun showNotFoundError() {
+        showErrorDialog(getString(R.string.not_found_title),
+                getString(R.string.not_found_msg))
+    }
 
+    override fun hideErrorDialog() {
+        errorDialog?.dismiss()
     }
 
     private fun setupSpinners() {
@@ -86,6 +95,17 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
         btnConvert.isEnabled = enabled
         spinnerFromCurrency.isEnabled = enabled
         spinnerToCurrency.isEnabled = enabled
+    }
+
+    private fun showErrorDialog(errorTitle: String, errorMessage: String) {
+        errorDialog = AlertDialog.Builder(this)
+                .setTitle(errorTitle)
+                .setMessage(errorMessage)
+                .setCancelable(false)
+                .setPositiveButton(android.R.string.yes) { _, _ ->
+                    currencyPresenter.hideErrorDialog()
+                }
+                .show()
     }
 
     companion object {

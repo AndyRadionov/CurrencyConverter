@@ -5,4 +5,8 @@
     <string name="convert_to">Конвертировать в</string>
     <string name="result">Результат:</string>
     <string name="convert">Конвертировать</string>
+    <string name="connection_error_title">Ошибка соединения</string>
+    <string name="connection_error_msg">Включите интернет и попробуйте снова!</string>
+    <string name="not_found_title">Ошибка поиска</string>
+    <string name="not_found_msg">Неизвестная ошибка.\nПожалуйста, повторите запрос позднее!</string>
 </resources>

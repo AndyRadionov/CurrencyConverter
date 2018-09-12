@@ -6,4 +6,8 @@
     <string name="convert_to">Convert to</string>
     <string name="result">Result:</string>
     <string name="convert">Convert</string>
+    <string name="connection_error_title">Connection error</string>
+    <string name="connection_error_msg">Turn on internet connection and try again!</string>
+    <string name="not_found_title">Not found error</string>
+    <string name="not_found_msg">Something went wrong. Please try again later!</string>
 </resources>

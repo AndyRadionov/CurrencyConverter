@@ -35,6 +35,10 @@ class CurrencyPresenter @Inject constructor(private val currencyRepository: Curr
                 })
     }
 
+    fun hideErrorDialog() {
+        viewState.hideErrorDialog()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         subscription?.dispose()

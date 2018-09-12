@@ -1,10 +1,14 @@
 package com.radionov.currencyconverter.ui
 
 import com.arellomobile.mvp.MvpView
+import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
+import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 
 /**
  * @author Andrey Radionov
  */
+
+@StateStrategyType(AddToEndSingleStrategy::class)
 interface CurrenciesView : MvpView {
 
     fun showProgress()
@@ -15,5 +19,7 @@ interface CurrenciesView : MvpView {
 
     fun showNetworkError()
 
-    fun showServerError()
+    fun showNotFoundError()
+
+    fun hideErrorDialog()
 }
