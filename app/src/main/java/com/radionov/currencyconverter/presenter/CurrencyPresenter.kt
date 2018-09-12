@@ -31,7 +31,7 @@ class CurrencyPresenter @Inject constructor(private val currencyRepository: Curr
                     viewState.showResult(result.values.first())
                 }, {
                     viewState.hideProgress()
-                    viewState.showNetworkError()
+                    viewState.showError()
                 })
     }
 

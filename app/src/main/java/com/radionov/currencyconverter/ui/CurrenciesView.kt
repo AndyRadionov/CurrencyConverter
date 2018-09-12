@@ -17,9 +17,7 @@ interface CurrenciesView : MvpView {
 
     fun showResult(result: Double)
 
-    fun showNetworkError()
-
-    fun showNotFoundError()
+    fun showError()
 
     fun hideErrorDialog()
 }

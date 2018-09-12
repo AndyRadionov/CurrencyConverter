@@ -12,6 +12,7 @@ import com.radionov.currencyconverter.presenter.CurrencyPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 import android.widget.ArrayAdapter
+import com.radionov.currencyconverter.utils.NetworkUtils
 
 class MainActivity : MvpAppCompatActivity(), CurrenciesView {
 
@@ -37,7 +38,7 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
 
     override fun showProgress() {
         setViewsEnabled(false)
-        btnConvert.text = ""
+        btnConvert.text = EMPTY_STRING
         pbConvert.visibility = View.VISIBLE
     }
 
@@ -52,14 +53,13 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
         tvResult.text = result.toString()
     }
 
-    override fun showNetworkError() {
-        showErrorDialog(getString(R.string.connection_error_title),
-                getString(R.string.connection_error_msg))
-    }
-
-    override fun showNotFoundError() {
-        showErrorDialog(getString(R.string.not_found_title),
-                getString(R.string.not_found_msg))
+    override fun showError() {
+        if (NetworkUtils.isInternetAvailable(this)) {
+            showErrorDialog(R.string.not_found_title, R.string.not_found_msg)
+        } else {
+            showErrorDialog(R.string.connection_error_title, R.string.connection_error_msg)
+        }
+        hideResult()
     }
 
     override fun hideErrorDialog() {
@@ -85,7 +85,7 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
     }
 
     private fun performRequest() {
-        tvResult.text = ""
+        tvResult.text = EMPTY_STRING
         val from = spinnerFromCurrency.selectedItem.toString()
         val to = spinnerToCurrency.selectedItem.toString()
         currencyPresenter.fetchCurrency("${from}_$to")
@@ -97,10 +97,15 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
         spinnerToCurrency.isEnabled = enabled
     }
 
-    private fun showErrorDialog(errorTitle: String, errorMessage: String) {
+    private fun hideResult() {
+        resultGroup.visibility = View.GONE
+        tvResult.text = EMPTY_STRING
+    }
+
+    private fun showErrorDialog(errorTitleId: Int, errorMessageId: Int) {
         errorDialog = AlertDialog.Builder(this)
-                .setTitle(errorTitle)
-                .setMessage(errorMessage)
+                .setTitle(getString(errorTitleId))
+                .setMessage(getString(errorMessageId))
                 .setCancelable(false)
                 .setPositiveButton(android.R.string.yes) { _, _ ->
                     currencyPresenter.hideErrorDialog()
@@ -109,6 +114,7 @@ class MainActivity : MvpAppCompatActivity(), CurrenciesView {
     }
 
     companion object {
+        const val EMPTY_STRING = ""
         const val USD_ARRAY_POSITION = 8
         const val RUB_ARRAY_POSITION = 141
     }

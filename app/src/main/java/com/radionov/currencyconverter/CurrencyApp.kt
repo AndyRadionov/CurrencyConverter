@@ -2,6 +2,7 @@ package com.radionov.currencyconverter
 
 import android.app.Application
 import com.radionov.currencyconverter.di.AppComponent
+import com.radionov.currencyconverter.di.AppModule
 import com.radionov.currencyconverter.di.DaggerAppComponent
 
 /**
@@ -15,6 +16,9 @@ class CurrencyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.create()
+        appComponent = DaggerAppComponent
+                .builder()
+                .appModule(AppModule(this))
+                .build()
     }
 }
